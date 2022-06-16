@@ -25,7 +25,7 @@ Bahasa Pemograman :
 Fitur Website :
 1. Halaman Depan (Hijau Putih)
 2. Template Admin LTE Terbaru (Dark Mode) 
-3. User 1 aja (Admin)
+3. Multi User (Admin, Guru dan Siswa)
 4. Halaman Utama (5) : Beranda, Profil, Jurusan, Fasilitas, Daftar Artikel dan Kontak.
 5. Data Master terdiri dari (3) : Data Siswa, Guru, Alumnus.
 6. Data Report terdiri dari (8) : Laporan Siswa, Kelas, Kegiatan, Artikel, Surat Pemanggilan Orang Tua, Surat Pindah Sekolah, Surat Izin Tidak Hadir (Guru) dan Detail Alumnus.
