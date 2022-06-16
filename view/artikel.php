@@ -19,6 +19,7 @@ $query = mysqli_query($kon, "SELECT * FROM artikel JOIN user ON artikel.id = use
                   <th>Konten</th>
                   <th>Penulis</th>
                   <th>Thumbnail</th>
+                  <th>File</th>
                   <th>Jumlah Dilihat</th>
                   <th class="knsdkvbgvr"></th>
                 </tr>
@@ -29,11 +30,16 @@ $query = mysqli_query($kon, "SELECT * FROM artikel JOIN user ON artikel.id = use
                   <tr class="text-center">
                     <td><?= $no++ ?></td>
                     <td><?= htw($j['waktu']); ?></td> 
-                    <td><?= $j['judul'] ?></td>
+                    <td><?= substr(strip_tags($j['judul']),0,30).'...'; ?></td>
                     <td><?= $j['kategori'] ?></td>
                     <td><?= substr(strip_tags($j['konten']),0,30).'...'; ?></td>      
                     <td><?= $j['nama'].' - '.$j['level'] ?></td>           
-                    <td><a target="_blank" href="../<?= $j['thumb'] ?>"><img src="../<?= $j['thumb'] ?>" width='60px'></a></td>           
+                    <td><a target="_blank" href="../<?= $j['thumb'] ?>"><img src="../<?= $j['thumb'] ?>" width='60px'></a></td>  
+                    <td><?php if($j['file']){ ?>
+                      <a target="_blank" href="../<?= $j['file'] ?>">Ada</a>
+                    <?php }else{
+                      echo '-';
+                    } ?></td>           
                     <td><?= $j['view'] ?></td>           
                     <td><?php 
                         zeroOne("?action=ubah&idArtikel=$j[idArtikel]"); 
@@ -81,7 +87,7 @@ case "tambah": ?>
               <label for="exampleInputFile">Thumbnails</label>
               <div class="input-group">
                 <div class="custom-file">
-                  <input type="file" name="file" class="custom-file-input" id="exampleInputFile">
+                  <input type="file" name="file" class="custom-file-input" id="exampleInputFile" required>
                   <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                 </div>
                 <div class="input-group-append">
@@ -90,14 +96,16 @@ case "tambah": ?>
               </div>
             </div>
             <div class="form-group">
-                <label>Penulis</label>
-                <select class="form-control" name="id">
-                    <option selected disabled>Pilih</option>
-                    <?php $query = mysqli_query($kon, "SELECT * FROM user ORDER BY nama ASC");
-                    while ($j = mysqli_fetch_array($query)) { ?>
-                        <option value="<?= $j['id'] ?>"><?= $j['nama'].' ('.$j['level'].')' ?></option>
-                    <?php } ?>
-                </select>
+              <label for="exampleInputFile">File (Jika ada)</label>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" name="file2" class="custom-file-input" id="exampleInputFile">
+                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                </div>
+                <div class="input-group-append">
+                  <span class="input-group-text" id="">Upload</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

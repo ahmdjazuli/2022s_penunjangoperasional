@@ -3,6 +3,15 @@ Judul Aplikasi :  SISTEM INFORMASI PENUNJANG OPERASIONAL SMK DARUSSALAM MARTAPUR
 
 Joki untuk kebutuhan Skripsi Mahasiswa Uniska Banjarbaru.
 
+PEMBAHARUAN : 
+1. Tabel Artikel (kolom file).
+2. Tabel Siswa (kolom tgldaftar).
+3. Tabel User (kolom foto).
+4. Masalah Login Siswa.
+5. Coba ke Detail Siswa/Guru.
+6. Login sebagai Guru.
+7. Kegiatan bagian status.
+
 Aplikasi yang digunakan :
 1. Sublime 3 Text Editor
 2. Browser Chrome

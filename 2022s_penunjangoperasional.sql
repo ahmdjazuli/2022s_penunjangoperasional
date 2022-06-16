@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2022 at 11:30 AM
+-- Generation Time: Jun 16, 2022 at 03:39 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -92,18 +92,20 @@ CREATE TABLE `artikel` (
   `konten` text NOT NULL,
   `waktu` datetime NOT NULL,
   `thumb` text NOT NULL,
-  `view` int(5) NOT NULL
+  `view` int(5) NOT NULL,
+  `file` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `artikel`
 --
 
-INSERT INTO `artikel` (`idArtikel`, `id`, `judul`, `kategori`, `konten`, `waktu`, `thumb`, `view`) VALUES
-(5, 6, 'Jaksa Masuk Sekolah, Ngapain ya?', 'Berita', '<p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Senin, 22 Mei 2022 di aula SMK Darrusalam Martapura sekitar jam 10.00 Wita sebanyak 80 siswa SMK Darrusalam Martapura duduk dengan rapi, mendengarkan dengan saksama penyuluhan tentang hukum dengan tema â€œDari, Oleh, dan Untuk Sekolahku.â€ Kegiatan tersebut diselenggarakan oleh Dinas Pendidikan Provinsi Kalimantan Selatan bekerjasama dengan Kantor Kejaksaan Provinsi Kalimantan Selatan.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Pada penyuluhan hukum tersebut dibahas tentang tindak kejahatan siber dan perundungan Beberapa contoh kasus kejahatan siber yang ada di Indonesia di antaranya adalah penipuan lelang secara online, pemalsuan cek, penipuan kartu kredit atau carding, confidence fraud atau penipuan kepercayaan, penipuan identitas, dan pornografi. Sedangkan perundungan bisa terjadi lewat media sosial maaupun secara langsung.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Menurut Aprilia Maulida , siswa kelas X TSM 2, terdapat banyak manfaat yang dapat diambil dari mengikuti kegiatan penyuluhan tersebut. Di antaranya siswa bisa mengetahui jika perundungan bisa mengakibatkan seseorang dikenai sanksi hukum. Intan Sari, siswa X TMT 2 juga menambahkan bahwa dengan adanya ancaman sanksi hukum terhadap kejahatan siber dan perundungan, seseorang dapat berpikir lebih panjang jika akan melakukan tindakan tersebut. (Maru)</p>', '2022-05-23 11:35:00', 'assets/img/WhatsApp-Image-2022-01-26-at-07.58.41-3.jpeg', 18),
-(7, 6, 'Meriahkan Perayaan Idul Adha, Empat Ekor Daging Sapi dibagikan di SMK Darrusalam Martapura', 'Berita', '<p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Ibadah kurban disyariatkan Allah SWT untuk mengenal sejarah Idul Adha yang dialami oleh Nabi Ibrahim AS. Peristiwa tersebut diabadikan dalam QS As Shaffat ayat 102-107.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Dalam rangka perayaan Idul Adha 1442 H yang jatuh pada Senin, 20 Juli 2021,&nbsp; sebanyak&nbsp; 26 guru, staf TU, keluarga ditambah 2 orang pengawas SMK turut serta melaksanakan ibadah qurban. Dari 28 peserta akhirnya dapat diselenggarakan penyembelihan hewan kurban sebanyak empat ekor sapi. Pelaksanaan penyembelihan sapi kurban dilaksanakan pada Kamis, 22 Juli 2021.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Ini kali kedua SMK Darrusalam Martapura melaksanakannya. Semangat pelaksanaan ibadah kurban tahun ini meningkat dibandingkan pelaksanaan pertama tahun 2020. Saat itu tiga ekor sapi yang disembelih dan dibagi-bagikan ke warga.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Pelaksanaan ibadah qurban tersebut memang direncanakan setahun sebelumnya. Warga SMK berinisiatif menyelenggarakan tabungan qurban yang disetorkan setiap bulan atau pada waktu tertentu kepada Panitia. Daging kurban dibagi-bagikan kepada sebagian siswa, guru, dan masyarakat sekitar sebanyak 544 kupon. Ketua Panitia, H. Syukhyar mengungkapkan rasa syukur karena antusias warga SMK semakin bertambah untuk ikut melaaksanakan ibadah kurban. Beliau juga berharap se tahun mendatang pelaksanaan ibadah kurban di SMK Darrusalam Martapura tetap berlanjut. (MaRu)</p>', '2022-06-09 10:54:00', 'assets/img/WhatsApp-Image-2021-07-22-at-13.28.10.jpeg', 0),
-(8, 6, 'Di Tengah Bencana, SMK Darrusalam Hadir', 'Berita', '<p><span style=\"text-align: justify;\">Hari ini adalah hari ke tujuh pengungsi berada di SMK Darrusalam Martapura. Banyak bantuan dari para dermawan yang sudah sampai dan dikelolakan oleh relawan Smekma baik berupa uang, sembako, pakaian, bahan untuk keperluan mandi, obat-obatan. Bahkan ada donatur yang memberikan ikan segar sebanyak empat karung besar. Menurut Muniroh, koordinator relawan Smekma, donatur ikan segar yang tidak mau disebutkan namanya tersebut berasal dari Rantau. Dengan kondisi jalan yang putus, relawan dengan sigap mengambil bantuan menggunakan kelotok. Untuk membersihkan ikan segar tersebut relawan Smekma dibantu oleh ibu-ibu pengungsi.</span></p><p><span style=\"text-align: justify;\">Kolaborasi antara relawan dengan pengungsi tidak hanya urusan konsumsi. Pada hari ketiga pengungsi menggagas acara Maulid yang dilaksanakan di mushalla sekolah. Pengungsi di SMK Darrusalam Martapura yang cukup tertib juga sangat membantu memudahkan relawan untuk melayani mereka dengan baik dan tulus.</span><span style=\"text-align: justify;\"><br></span><br></p>', '2022-06-05 10:57:00', 'assets/img/WhatsApp-Image-2021-01-19-at-21.18.06.jpeg', 3),
-(10, 6, 'Pendaftaran Penerimaan Didik Baru (PPDB) Online SMK Darrusalam Tahun Pelajaran 2022/2023', 'Pengumuman', '<p><span style=\"text-align: justify;\">Calon peserta didik baru mengisi formulir pendaftaran dengan memilih jenis jalur pendaftaran yang tersedia.</span></p><p>Pendaftaraan dibuka mulai tanggal 10 Juni 2022 s/d 20 Juli 2022</p><p>Silahkan pergi ke link berikut ini :&nbsp;<a href=\"http://localhost/2022/2022s_penunjangoperasional/ppdb\" target=\"_blank\">http://localhost/2022/2022s_penunjangoperasional/ppdb</a><b></b></p>', '2022-06-09 11:10:00', 'assets/img/Remini20220609112421647.jpg', 9);
+INSERT INTO `artikel` (`idArtikel`, `id`, `judul`, `kategori`, `konten`, `waktu`, `thumb`, `view`, `file`) VALUES
+(5, 6, 'Jaksa Masuk Sekolah, Ngapain ya?', 'Berita', '<p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Senin, 22 Mei 2022 di aula SMK Darrusalam Martapura sekitar jam 10.00 Wita sebanyak 80 siswa SMK Darrusalam Martapura duduk dengan rapi, mendengarkan dengan saksama penyuluhan tentang hukum dengan tema â€œDari, Oleh, dan Untuk Sekolahku.â€ Kegiatan tersebut diselenggarakan oleh Dinas Pendidikan Provinsi Kalimantan Selatan bekerjasama dengan Kantor Kejaksaan Provinsi Kalimantan Selatan.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Pada penyuluhan hukum tersebut dibahas tentang tindak kejahatan siber dan perundungan Beberapa contoh kasus kejahatan siber yang ada di Indonesia di antaranya adalah penipuan lelang secara online, pemalsuan cek, penipuan kartu kredit atau carding, confidence fraud atau penipuan kepercayaan, penipuan identitas, dan pornografi. Sedangkan perundungan bisa terjadi lewat media sosial maaupun secara langsung.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Menurut Aprilia Maulida , siswa kelas X TSM 2, terdapat banyak manfaat yang dapat diambil dari mengikuti kegiatan penyuluhan tersebut. Di antaranya siswa bisa mengetahui jika perundungan bisa mengakibatkan seseorang dikenai sanksi hukum. Intan Sari, siswa X TMT 2 juga menambahkan bahwa dengan adanya ancaman sanksi hukum terhadap kejahatan siber dan perundungan, seseorang dapat berpikir lebih panjang jika akan melakukan tindakan tersebut. (Maru)</p>', '2022-05-23 11:35:00', 'assets/img/WhatsApp-Image-2022-01-26-at-07.58.41-3.jpeg', 18, ''),
+(7, 6, 'Meriahkan Perayaan Idul Adha, Empat Ekor Daging Sapi dibagikan di SMK Darrusalam Martapura', 'Berita', '<p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Ibadah kurban disyariatkan Allah SWT untuk mengenal sejarah Idul Adha yang dialami oleh Nabi Ibrahim AS. Peristiwa tersebut diabadikan dalam QS As Shaffat ayat 102-107.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Dalam rangka perayaan Idul Adha 1442 H yang jatuh pada Senin, 20 Juli 2021,&nbsp; sebanyak&nbsp; 26 guru, staf TU, keluarga ditambah 2 orang pengawas SMK turut serta melaksanakan ibadah qurban. Dari 28 peserta akhirnya dapat diselenggarakan penyembelihan hewan kurban sebanyak empat ekor sapi. Pelaksanaan penyembelihan sapi kurban dilaksanakan pada Kamis, 22 Juli 2021.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Ini kali kedua SMK Darrusalam Martapura melaksanakannya. Semangat pelaksanaan ibadah kurban tahun ini meningkat dibandingkan pelaksanaan pertama tahun 2020. Saat itu tiga ekor sapi yang disembelih dan dibagi-bagikan ke warga.</p><p style=\"margin-right: 0px; margin-bottom: 20px; margin-left: 0px; padding: 0px;\">Pelaksanaan ibadah qurban tersebut memang direncanakan setahun sebelumnya. Warga SMK berinisiatif menyelenggarakan tabungan qurban yang disetorkan setiap bulan atau pada waktu tertentu kepada Panitia. Daging kurban dibagi-bagikan kepada sebagian siswa, guru, dan masyarakat sekitar sebanyak 544 kupon. Ketua Panitia, H. Syukhyar mengungkapkan rasa syukur karena antusias warga SMK semakin bertambah untuk ikut melaaksanakan ibadah kurban. Beliau juga berharap se tahun mendatang pelaksanaan ibadah kurban di SMK Darrusalam Martapura tetap berlanjut. (MaRu)</p>', '2022-06-09 10:54:00', 'assets/img/WhatsApp-Image-2021-07-22-at-13.28.10.jpeg', 3, ''),
+(8, 6, 'Di Tengah Bencana, SMK Darrusalam Hadir', 'Berita', '<p><span style=\"text-align: justify;\">Hari ini adalah hari ke tujuh pengungsi berada di SMK Darrusalam Martapura. Banyak bantuan dari para dermawan yang sudah sampai dan dikelolakan oleh relawan Smekma baik berupa uang, sembako, pakaian, bahan untuk keperluan mandi, obat-obatan. Bahkan ada donatur yang memberikan ikan segar sebanyak empat karung besar. Menurut Muniroh, koordinator relawan Smekma, donatur ikan segar yang tidak mau disebutkan namanya tersebut berasal dari Rantau. Dengan kondisi jalan yang putus, relawan dengan sigap mengambil bantuan menggunakan kelotok. Untuk membersihkan ikan segar tersebut relawan Smekma dibantu oleh ibu-ibu pengungsi.</span></p><p><span style=\"text-align: justify;\">Kolaborasi antara relawan dengan pengungsi tidak hanya urusan konsumsi. Pada hari ketiga pengungsi menggagas acara Maulid yang dilaksanakan di mushalla sekolah. Pengungsi di SMK Darrusalam Martapura yang cukup tertib juga sangat membantu memudahkan relawan untuk melayani mereka dengan baik dan tulus.</span><span style=\"text-align: justify;\"><br></span><br></p>', '2022-06-05 10:57:00', 'assets/img/WhatsApp-Image-2021-01-19-at-21.18.06.jpeg', 5, ''),
+(10, 6, 'Pendaftaran Penerimaan Didik Baru (PPDB) Online SMK Darrusalam Tahun Pelajaran 2022/2023', 'Pengumuman', '<p><span style=\"text-align: justify;\">Calon peserta didik baru mengisi formulir pendaftaran dengan memilih jenis jalur pendaftaran yang tersedia.</span></p><p>Pendaftaraan dibuka mulai tanggal 10 Juni 2022 s/d 20 Juli 2022</p><p>Silahkan pergi ke link berikut ini :&nbsp;<a href=\"http://localhost/2022/2022s_penunjangoperasional/ppdb\" target=\"_blank\">http://localhost/2022/2022s_penunjangoperasional/ppdb</a><b></b></p>', '2022-06-09 11:10:00', 'assets/img/Remini20220609112421647.jpg', 17, ''),
+(11, 6, 'Pengumuman Hasil PPDB 2022', 'Pengumuman', '<p>Berikut hasil PPDB calon siswa yang diterima dan ditolak, silahkan download filenya di bawah ini...</p>', '2022-06-16 09:19:00', 'assets/img/Picture1.jpg', 7, 'assets/img/pengumuman-ppdb-2022.pdf');
 
 -- --------------------------------------------------------
 
@@ -128,7 +130,8 @@ CREATE TABLE `guru` (
 INSERT INTO `guru` (`idGuru`, `id`, `jabatan`, `idt`, `prodi`, `golongan`, `tipe`) VALUES
 (8, 5, 'Guru MatPel', 'S1 1995', 'PLS', 'III/a', 'Tetap'),
 (9, 7, 'Waka Kesiswaan', 'S1 1995', 'S1 Kimia', 'III/b', 'Tetap'),
-(10, 13, 'Guru MatPel	', 'S1 1991', 'S1 Fisika', 'IVA', 'Tetap');
+(10, 13, 'Guru MatPel	', 'S1 1991', 'S1 Fisika', 'IVA', 'Tetap'),
+(11, 16, 'Kepala Sekolah', 'S3 Dokter', 'Dokter', 'IVC', 'Tetap');
 
 -- --------------------------------------------------------
 
@@ -151,7 +154,9 @@ CREATE TABLE `kegiatan` (
 --
 
 INSERT INTO `kegiatan` (`idKegiatan`, `idGuru`, `kegiatannya`, `lokasi`, `waktu`, `nosurat`, `status`) VALUES
-(1, 9, 'Pengambilan Raport Siswa', 'Banjarbaru', '2022-05-25 09:14:00', '001-peg', 0);
+(1, 9, 'Pengambilan Raport Siswa', 'Banjarbaru', '2022-05-25 09:14:00', '001-peg', 2),
+(2, 8, 'Rapat Penyambutan Presiden', 'Kantor Gubernur Kalimantan Selatan', '2022-06-15 11:28:00', '421.1-Peg', 2),
+(3, 10, 'Rapat Penanggulangan Narkotika', 'Aula SMK DARRUSALAM', '2022-06-16 09:24:00', '013-peg', 2);
 
 -- --------------------------------------------------------
 
@@ -193,17 +198,19 @@ CREATE TABLE `siswa` (
   `namaIbu` varchar(100) NOT NULL,
   `agamaIbu` varchar(50) NOT NULL,
   `kerjaIbu` varchar(50) NOT NULL,
-  `status` enum('Aktif','Tidak Aktif','Menunggu') NOT NULL
+  `tgldaftar` date NOT NULL,
+  `status` enum('Menunggu','Ditolak','Aktif','Tidak Aktif') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`idSiswa`, `id`, `idKelas`, `namaAyah`, `agamaAyah`, `kerjaAyah`, `namaIbu`, `agamaIbu`, `kerjaIbu`, `status`) VALUES
-(4, 11, 2, 'Anas', 'Islam', 'Wirausaha', 'Hafsah', 'Katolik', 'PNS', 'Aktif'),
-(5, 12, 3, 'Dustin Tiffany', 'Islam', 'Dokter', 'Chelsea Olivia', 'Budha', 'Perawat', 'Aktif'),
-(7, 15, 4, 'Didik Setiawan', 'Kristen', 'Dokter', 'Desi Ratnasari', 'Islam', 'Suster', 'Menunggu');
+INSERT INTO `siswa` (`idSiswa`, `id`, `idKelas`, `namaAyah`, `agamaAyah`, `kerjaAyah`, `namaIbu`, `agamaIbu`, `kerjaIbu`, `tgldaftar`, `status`) VALUES
+(4, 11, 2, 'Anas', 'Islam', 'Wirausaha', 'Hafsah', 'Katolik', 'PNS', '2022-06-14', 'Aktif'),
+(5, 12, 3, 'Dustin Tiffany', 'Islam', 'Dokter', 'Chelsea Olivia', 'Budha', 'Perawat', '2022-06-13', 'Aktif'),
+(8, 17, 4, 'Ridwan Kamil', 'Islam', 'Wirausaha', 'Hintis', 'Hindu', '-', '2022-06-12', 'Aktif'),
+(9, 19, 1, 'Marlo', 'Kristen', 'Content Creator', 'Dwi Willy Pirlo', 'Kristen', 'Selebgram', '2022-06-15', 'Ditolak');
 
 -- --------------------------------------------------------
 
@@ -247,7 +254,7 @@ CREATE TABLE `surat_pindah` (
 --
 
 INSERT INTO `surat_pindah` (`idSuratPindah`, `idSiswa`, `tgl`, `nosurat`, `sekolahTujuan`, `ket`) VALUES
-(1, 5, '2022-05-26', 2, 'SMA Negeri 1 Banjarmasin', 'Pekerjaan Orang Tua');
+(1, 5, '2022-05-26', 11, 'SMA Negeri 1 Banjarmasin', 'Pekerjaan Orang Tua');
 
 -- --------------------------------------------------------
 
@@ -269,7 +276,8 @@ CREATE TABLE `surat_thadir` (
 
 INSERT INTO `surat_thadir` (`idSuratThadir`, `idGuru`, `tgl`, `ket`, `status`) VALUES
 (1, 8, '2022-06-07', 'Opname di Rumah Sakit Zuleha Martapura', 0),
-(2, 10, '2022-06-01', 'Acara Pernikahan Anak', 0);
+(2, 10, '2022-06-01', 'Acara Pernikahan Anak', 0),
+(3, 9, '2022-06-15', 'Kegiatan Studi Tour di Museum Banjarbaru', 0);
 
 -- --------------------------------------------------------
 
@@ -289,21 +297,24 @@ CREATE TABLE `user` (
   `tanggal_lahir` date NOT NULL,
   `alamat` text NOT NULL,
   `telp` varchar(15) NOT NULL,
-  `level` enum('Guru','Siswa','Karyawan','Admin') NOT NULL
+  `level` enum('Guru','Siswa','Karyawan','Admin') NOT NULL,
+  `foto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nama`, `username`, `password`, `ni`, `jk`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telp`, `level`) VALUES
-(5, 'Coki Pardede', '19801114 200802 1 001', '19801114 200802 1 001', '21710005', 'Pria', 'Islam', 'Banjarbaru', '2006-05-24', 'Landasan Ulin', '08959731445', 'Guru'),
-(6, 'admin', 'admin', 'admin', '', '', '', '', '0000-00-00', '', '', 'Admin'),
-(7, 'Anti Dendruf', '19720713200604 1 885', '19720713200604 1 885', '19720713200604 1 885', 'Pria', 'Islam', 'Jakarta', '2022-05-23', 'Jakarta', '089666714255', 'Guru'),
-(11, 'Rendi Irawan', '21710006', '21710006', '21710006', 'Pria', 'Katolik', 'Binuang', '2005-05-24', 'Jl. Guntung Manggis kota Banjarbaru', '08959751123', 'Siswa'),
-(12, 'Rispo Anwar', '21710009', '21710009', '21710009', 'Pria', 'Budha', 'Landasan Ulin', '2005-05-25', 'Jl. Guntung Manggis kota Banjarbaru', '08159611341', 'Siswa'),
-(13, 'Hesti', '19801114 206801 2 009', '19801114 206801 2 009', '21710010', 'Wanita', 'Islam', 'tidakada', '1994-06-10', 'Kandangan', '08154613432', 'Guru'),
-(15, 'Riri Ramadhani', '085309214412', '085309214412', '', 'Wanita', 'Islam', 'Jawa Timur', '2007-06-10', 'Landasan Ulin', '085309214412', 'Siswa');
+INSERT INTO `user` (`id`, `nama`, `username`, `password`, `ni`, `jk`, `agama`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telp`, `level`, `foto`) VALUES
+(5, 'Coki Pardede', '21710005', '21710005', '21710005', 'Pria', 'Islam', 'Banjarbaru', '2006-05-24', 'Landasan Ulin', '08959731445', 'Guru', 'assets/img/Picture5.png'),
+(6, 'admin', 'admin', 'admin', '', '', '', '', '0000-00-00', '', '', 'Admin', 'assets/img/admin.jpg'),
+(7, 'Anti Dendruf', '19720713200604 1 885', '19720713200604 1 885', '19720713200604 1 885', 'Pria', 'Islam', 'Jakarta', '2022-05-23', 'Jakarta', '089666714255', 'Guru', 'assets/img/download.jpg'),
+(11, 'Rendi Irawan', '21710006', '21710006', '21710006', 'Pria', 'Katolik', 'Binuang', '2005-05-24', 'Jl. Guntung Manggis kota Banjarbaru', '08959751123', 'Siswa', 'assets/img/4x6.jpg'),
+(12, 'Rispo Anwar', '08159611341', '08159611341', '21710009', 'Pria', 'Budha', 'Landasan Ulin', '2005-05-25', 'Jl. Guntung Manggis kota Banjarbaru', '08159611341', 'Siswa', 'assets/img/Picture1.png'),
+(13, 'Hesti', '19801114 206801 2 009', '19801114 206801 2 009', '21710010', 'Wanita', 'Islam', 'tidakada', '1994-06-10', 'Kandangan', '08154613432', 'Guru', ''),
+(16, 'H. M. Yuseran Yacub', '19720713200604 2 886', '19720713200604 2 886', '19720713200604 2 886', 'Pria', 'Islam', 'Bincau', '1978-04-07', 'Martapura', '081251109920', 'Guru', ''),
+(17, 'Aprilia Insani', '089587960192', '089587960192', '21710016', 'Pria', 'Islam', 'Martapura', '2007-06-12', 'Kompas', '089587960192', 'Siswa', 'assets/img/09011401.JPG'),
+(19, 'Young Lex', '089765651000', '089765651000', '', 'Pria', 'Kristen', 'Jakarta Selatan', '2006-06-14', 'Banjarbaru', '089765651000', 'Siswa', '');
 
 --
 -- Indexes for dumped tables
@@ -413,13 +424,13 @@ ALTER TABLE `artikel`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `idGuru` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idGuru` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `idKegiatan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idKegiatan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `kelas`
@@ -431,7 +442,7 @@ ALTER TABLE `kelas`
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `idSiswa` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idSiswa` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `surat_panggilan`
@@ -455,7 +466,7 @@ ALTER TABLE `surat_thadir`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
@@ -508,6 +519,12 @@ ALTER TABLE `surat_panggilan`
 --
 ALTER TABLE `surat_pindah`
   ADD CONSTRAINT `surat_pindah_ibfk_1` FOREIGN KEY (`idSiswa`) REFERENCES `siswa` (`idSiswa`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `surat_thadir`
+--
+ALTER TABLE `surat_thadir`
+  ADD CONSTRAINT `surat_thadir_ibfk_1` FOREIGN KEY (`idGuru`) REFERENCES `guru` (`idGuru`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

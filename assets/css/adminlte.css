@@ -12629,8 +12629,9 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 .user-panel img {
-  height: auto;
+  height: 2.1rem;
   width: 2.1rem;
+  object-fit: cover;
 }
 
 .user-panel .info {

@@ -1,3 +1,8 @@
+<?php 
+  require('kon.php'); 
+  require('view/config.php'); 
+  session_start(); error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -71,19 +76,36 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+          <?php 
+            if($_SESSION['level'] == 'Siswa'){?>
+            <li class="active"><a href="index">Beranda</a></li>
+            <li><a href="jurusan">Jurusan</a></li>
+            <li><a href="fasilitas">Fasilitas</a></li>
+            <li><a href="daftar-artikel">Daftar Artikel</a></li>
+            <li><a href="profil?id=<?= $_SESSION['id'] ?>">Profil Akun</a></li>
+            <li><a href="out">Keluar</a></li>          
+          <?php  }else{ ?>
             <li class="active"><a href="index">Beranda</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profil <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="sambutan-kepala-sekolah">Sambutan Kepala Sekolah</a></li>                
                 <li><a href="visi-misi">Visi dan Misi</a></li>                
+                <li><a href="contact">Kontak</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">PPDB <span class="fa fa-angle-down"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="ppdb">Formulir PPDB</a></li>                
+                <li><a href="daftar-artikel?kategori=Pengumuman">Pengumuman PPDB</a></li>
               </ul>
             </li>           
             <li><a href="jurusan">Jurusan</a></li>
             <li><a href="fasilitas">Fasilitas</a></li>
-            <li><a href="daftar-artikel">Daftar Artikel</a></li>          
-            <li><a href="contact">Kontak</a></li>
+            <li><a href="daftar-artikel">Daftar Artikel</a></li>
             <li><a data-toggle="modal" data-target="#modalku" id="mu-search-icon"><i class="fa fa-sign-in"></i></a></li>
+          <?php } ?>
           </ul>                     
         </div><!--/.nav-collapse -->        
       </div>     

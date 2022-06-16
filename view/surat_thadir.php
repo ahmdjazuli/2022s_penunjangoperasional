@@ -1,4 +1,4 @@
-<?php require('head.php'); hal('Surat Izin Tidak Hadir (Guru)');
+<?php require('head.php'); $_SESSION['level']!='Admin' && $_SESSION['jabatan']!='Kepala Sekolah' ? hal('Surat Izin Tidak Hadir (Guru)') : hel('Surat Izin Tidak Hadir (Guru)'); 
 $action = isset($_GET['action']) ? $_GET['action'] : ''; 
 switch($action){ default:
 $query = mysqli_query($kon, "SELECT * FROM surat_thadir JOIN guru ON surat_thadir.idGuru = guru.idGuru JOIN user ON guru.id = user.id ORDER BY tgl DESC"); ?>
@@ -30,10 +30,17 @@ $query = mysqli_query($kon, "SELECT * FROM surat_thadir JOIN guru ON surat_thadi
                     <td><?= $j['ni'] ?></td>      
                     <td><?= $j['nama'] ?></td>
                     <td><?= $j['ket'] ?></td>
-                    <td><?= $j['status'] ?></td>           
+                    <td><?php if($j['status'] == 0){ echo 'Menunggu Persetujuan Kepsek';
+                    }else if($j['status'] == 1){ echo 'Ditolak, Data Tidak Lengkap'; 
+                    }else if($j['status'] == 2){ echo 'Diterima Kepsek'; 
+                    } ?></td>            
                     <td><?php 
+                      if($_SESSION['id'] == $j['id']){  
                         zeroOne("?action=ubah&idSuratThadir=$j[idSuratThadir]"); 
+                      }else if($_SESSION['level'] == 'Admin' OR $_SESSION['jabatan'] == 'Kepala Sekolah'){ 
+                        zeroOne("?action=ubah&idSuratThadir=$j[idSuratThadir]");
                         zeroTwo("$j[idSuratThadir]","idSuratThadir=$j[idSuratThadir]");
+                      } 
                     ?></td>
                   </tr>
                 <?php } ?>
@@ -59,6 +66,8 @@ case "tambah": ?>
                 <label>Tanggal</label>
                 <input type="date" name="tgl" value="<?= date('Y-m-d') ?>" class="form-control" required>
             </div>
+            <?php 
+            if($_SESSION['level'] == 'Admin'){ ?>            
             <div class="form-group">
                 <label>Nama Guru</label>
                 <input type="text" name="idGuru" list="option" class="form-control" required>
@@ -69,6 +78,9 @@ case "tambah": ?>
                     <?php } ?>
                 </datalist>
             </div>
+            <?php }else{ ?>
+              <input type="hidden" name="idGuru" value="<?= $_SESSION['idGuru'] ?>" required>
+            <?php } ?>
             <div class="form-group">
                 <label>Keterangan</label>
                 <input type="text" name="ket" class="form-control" required>

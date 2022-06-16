@@ -7,6 +7,7 @@
   $artikel         = mysqli_num_rows(mysqli_query($kon, "SELECT * FROM artikel"));
   $surat_panggilan = mysqli_num_rows(mysqli_query($kon, "SELECT * FROM surat_panggilan"));
   $surat_pindah    = mysqli_num_rows(mysqli_query($kon, "SELECT * FROM surat_pindah"));
+  $surat_thadir    = mysqli_num_rows(mysqli_query($kon, "SELECT * FROM surat_thadir"));
   $alumnus         = mysqli_num_rows(mysqli_query($kon, "SELECT * FROM alumnus"));
 ?>
   <section class="content">
@@ -41,16 +42,7 @@
         </div>
         <div class="col-12 col-sm-6 col-md-3">
           <div class="info-box">
-            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-person-booth"></i></span>
-            <div class="info-box-content">
-              <span class="info-box-text">Kegiatan</span>
-              <span class="info-box-number"><?= $kegiatan ?></span>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-3">
-          <div class="info-box">
-            <span class="info-box-icon bg-success elevation-1"><i class="fas fas fa-map"></i></span>
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-map"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Artikel</span>
               <span class="info-box-number"><?= $artikel ?></span>
@@ -59,7 +51,16 @@
         </div>
         <div class="col-12 col-sm-6 col-md-3">
           <div class="info-box">
-            <span class="info-box-icon bg-success elevation-1"><i class="fas fas fa-envelope"></i></span>
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-envelope"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Kegiatan</span>
+              <span class="info-box-number"><?= $kegiatan ?></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-envelope"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Surat Pemanggilan Orang Tua</span>
               <span class="info-box-number"><?= $surat_panggilan ?></span>
@@ -68,7 +69,7 @@
         </div>
         <div class="col-12 col-sm-6 col-md-3">
           <div class="info-box">
-            <span class="info-box-icon bg-success elevation-1"><i class="fas fas fa-envelope"></i></span>
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-envelope"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Surat Pindah Sekolah</span>
               <span class="info-box-number"><?= $surat_pindah ?></span>
@@ -77,7 +78,16 @@
         </div>
         <div class="col-12 col-sm-6 col-md-3">
           <div class="info-box">
-            <span class="info-box-icon bg-success elevation-1"><i class="fas fas fa-id-card"></i></span>
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-envelope"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">Surat Izin Tidak Hadir (Guru)</span>
+              <span class="info-box-number"><?= $surat_thadir ?></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box">
+            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-id-card"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Alumnus</span>
               <span class="info-box-number"><?= $alumnus ?></span>

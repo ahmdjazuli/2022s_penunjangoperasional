@@ -49,39 +49,64 @@ if($tabel=='guru'){
     $lokasi      = htmlspecialchars($_REQUEST['lokasi'], ENT_QUOTES);
     $waktu       = htmlspecialchars($_REQUEST['waktu'], ENT_QUOTES);
     $nosurat     = htmlspecialchars($_REQUEST['nosurat'], ENT_QUOTES);
+    $status      = htmlspecialchars($_REQUEST['status'], ENT_QUOTES);
 
     if ($action=='tambah'){
         mysqli_query($kon, "INSERT INTO kegiatan (idGuru,kegiatannya,lokasi,waktu,nosurat,status) VALUES ('$idGuru','$kegiatannya','$lokasi','$waktu','$nosurat',0)");
         bebeb('simpan','kegiatan');
     }elseif ($action=='ubah'){
-        mysqli_query($kon, "UPDATE kegiatan SET idGuru='$idGuru', kegiatannya='$kegiatannya', lokasi = '$lokasi', waktu = '$waktu', nosurat = '$nosurat' WHERE idKegiatan = '$idKegiatan'");
+        mysqli_query($kon, "UPDATE kegiatan SET kegiatannya='$kegiatannya', lokasi = '$lokasi', waktu = '$waktu', nosurat = '$nosurat', status = '$status' WHERE idKegiatan = '$idKegiatan'");
         bebeb('ubah','kegiatan');
     }
 }else if($tabel=='artikel'){
     $idArtikel = htmlspecialchars($_REQUEST['idArtikel'], ENT_QUOTES);
-    $id        = htmlspecialchars($_REQUEST['id'], ENT_QUOTES);
     $judul     = htmlspecialchars($_REQUEST['judul'], ENT_QUOTES);
     $kategori  = htmlspecialchars($_REQUEST['kategori'], ENT_QUOTES);
     $konten    = $_REQUEST['konten'];
     $waktu     = htmlspecialchars($_REQUEST['waktu'], ENT_QUOTES);
     $view      = htmlspecialchars($_REQUEST['view'], ENT_QUOTES);
 
-    $namafile       = $_FILES['file']['tmp_name'];
-    $namafoto       = $_FILES['file']['name'];
-    $checkin        = $_FILES['file']['error'];
-    $fileLama       = $_REQUEST['fileLama'];
-    $lokasi         = "assets/img/".$_FILES['file']['name'];
-    $cekformat      = array('png','jpg','jpeg');
-    $x              = explode('.', $namafoto);
-    $ekstensi       = strtolower(end($x));
+    $namafile  = $_FILES['file']['tmp_name'];
+    $namafoto  = $_FILES['file']['name'];
+    $checkin   = $_FILES['file']['error'];
+    $fileLama  = $_REQUEST['fileLama'];
+    $lokasi    = "assets/img/".$_FILES['file']['name'];
+    $cekformat = array('png','jpg','jpeg');
+    $x         = explode('.', $namafoto);
+    $ekstensi  = strtolower(end($x));
+
+    $namafile2  = $_FILES['file2']['tmp_name'];
+    $namafoto2  = $_FILES['file2']['name'];
+    $checkin2   = $_FILES['file2']['error'];
+    $fileLama2  = $_REQUEST['fileLama2'];
+    $lokasi2    = "assets/img/".$_FILES['file2']['name'];
+    $cekformat2 = array('pdf');
+    $x2         = explode('.', $namafoto2);
+    $ekstensi2  = strtolower(end($x2));
 
     if ($action=='tambah'){
-        if(in_array($ekstensi, $cekformat) === true){
-            move_uploaded_file($namafile, '../'.$lokasi);
-            mysqli_query($kon, "INSERT INTO artikel (id,judul,kategori,konten,waktu,view,thumb) VALUES ('$id','$judul','$kategori','$konten','$waktu',0,'$lokasi')");
-            bebeb('simpan','artikel');
-        }else{ 
-            bebeb('ekstensi','artikel');
+        if($checkin2){
+            if(in_array($ekstensi, $cekformat) === true){
+                move_uploaded_file($namafile, '../'.$lokasi);
+                mysqli_query($kon, "INSERT INTO artikel (id,judul,kategori,konten,waktu,view,thumb) 
+                    VALUES ('$_SESSION[id]','$judul','$kategori','$konten','$waktu',0,'$lokasi')");
+                bebeb('simpan','artikel');
+            }else{ 
+                bebeb('ekstensi','artikel');
+            }
+        }else{
+            if(in_array($ekstensi, $cekformat) === true){
+                if(in_array($ekstensi2, $cekformat2) === true){
+                    move_uploaded_file($namafile, '../'.$lokasi);
+                    move_uploaded_file($namafile2, '../'.$lokasi2);
+                mysqli_query($kon, "INSERT INTO artikel (id,judul,kategori,konten,waktu,view,thumb,file) VALUES ('$_SESSION[id]','$judul','$kategori','$konten','$waktu',0,'$lokasi','$lokasi2')");
+                    bebeb('simpan','artikel');
+                }else{
+                    ?><script>alert('Gagal, Format File Haruf PDF'); window.location='artikel?action=tambah'</script><?php
+                }
+            }else{ 
+                bebeb('ekstensi','artikel');
+            }
         }
     }elseif ($action=='ubah'){
         if($checkin){
@@ -197,12 +222,35 @@ if($tabel=='guru'){
     $kerjaIbu      = htmlspecialchars($_REQUEST['kerjaIbu'], ENT_QUOTES);
     $idSiswa       = htmlspecialchars($_REQUEST['idSiswa'], ENT_QUOTES);
     $idKelas       = htmlspecialchars($_REQUEST['idKelas'], ENT_QUOTES);
+    $username      = htmlspecialchars($_REQUEST['username'], ENT_QUOTES);
+    $password      = htmlspecialchars($_REQUEST['password'], ENT_QUOTES);
+    $tgldaftar     = date('Y-m-d');
+
+    $namafile  = $_FILES['foto']['tmp_name'];
+    $namafoto  = $_FILES['foto']['name'];
+    $checkin   = $_FILES['foto']['error'];
+    $fotoLama  = $_REQUEST['fotoLama'];
+    $lokasi    = "assets/img/".$_FILES['foto']['name'];
+    $cekformat = array('png','jpg','jpeg');
+    $x         = explode('.', $namafoto);
+    $ekstensi  = strtolower(end($x));
 
     if ($action=='tambah'){
         mysqli_query($kon, "INSERT INTO user (nama,jk,agama,tempat_lahir,tanggal_lahir,alamat,telp,username,password,level) VALUES ('$nama','$jk','$agama','$tempat_lahir','$tanggal_lahir','$alamat','$telp','$telp','$telp','Siswa')");
         $id = $kon->insert_id;
-        mysqli_query($kon, "INSERT INTO siswa (id,agamaAyah,kerjaAyah,namaIbu,agamaIbu,namaAyah,kerjaIbu,idKelas,status) VALUES ('$id','$agamaAyah','$kerjaAyah','$namaIbu','$agamaIbu','$namaAyah','$kerjaIbu','$idKelas','Menunggu')");
+        mysqli_query($kon, "INSERT INTO siswa (id,agamaAyah,kerjaAyah,namaIbu,agamaIbu,namaAyah,kerjaIbu,idKelas,status,tgldaftar) VALUES ('$id','$agamaAyah','$kerjaAyah','$namaIbu','$agamaIbu','$namaAyah','$kerjaIbu','$idKelas','Menunggu','$tgldaftar')");
         ?><script>alert('Berhasil Dikirim, Tunggu Pengumuman di Daftar Artikel');window.location='../daftar-artikel'</script><?php
+    }elseif ($action=='ubah'){
+        mysqli_query($kon, "UPDATE siswa SET agamaAyah='$agamaAyah', kerjaAyah='$kerjaAyah', namaIbu = '$namaIbu', agamaIbu = '$agamaIbu', namaAyah='$namaAyah', kerjaIbu='$kerjaIbu' WHERE id = '$_SESSION[id]'"); 
+        if($checkin){
+            mysqli_query($kon, "UPDATE user SET nama='$nama', jk='$jk', agama = '$agama', tempat_lahir = '$tempat_lahir', tanggal_lahir='$tanggal_lahir', alamat='$alamat', telp = '$telp', username = '$username', password = '$password', foto = '$fotoLama' WHERE id = '$_SESSION[id]'");
+            ?><script>alert('Berhasil Diubah Data tanpa Mengubah Foto!');window.location='../profil'</script><?php
+        }else{
+            unlink('../'.$fotoLama);
+            move_uploaded_file($namafile, '../'.$lokasi);
+            mysqli_query($kon, "UPDATE user SET nama='$nama', jk='$jk', agama = '$agama', tempat_lahir = '$tempat_lahir', tanggal_lahir='$tanggal_lahir', alamat='$alamat', telp = '$telp', username = '$username', password = '$password', foto = '$lokasi' WHERE id = '$_SESSION[id]'"); 
+            ?><script>alert('Berhasil Diubah termasuk Foto');window.location='../profil'</script><?php  
+        }        
     }
 }else if($tabel=='surat_thadir'){
     $idSuratThadir = htmlspecialchars($_REQUEST['idSuratThadir'], ENT_QUOTES);
@@ -215,8 +263,43 @@ if($tabel=='guru'){
         mysqli_query($kon, "INSERT INTO surat_thadir (idGuru,ket,tgl,status) VALUES ('$idGuru','$ket','$tgl',0)"); 
         bebeb('simpan','surat_thadir');
     }elseif ($action=='ubah'){
-        mysqli_query($kon, "UPDATE surat_thadir SET ket='$ket', ket = '$ket', tgl = '$tgl', status = '$status' WHERE idSuratThadir = '$idSuratThadir'"); 
+        mysqli_query($kon, "UPDATE surat_thadir SET ket='$ket', tgl = '$tgl', status = '$status' WHERE idSuratThadir = '$idSuratThadir'"); 
         bebeb('ubah','surat_thadir');
+    }
+}else if($tabel=='profil'){
+    $username    = htmlspecialchars($_REQUEST['username'], ENT_QUOTES);
+    $usernameOLD = htmlspecialchars($_REQUEST['usernameOLD'], ENT_QUOTES);
+    $password    = htmlspecialchars($_REQUEST['password'], ENT_QUOTES);
+    $passwordOLD = htmlspecialchars($_REQUEST['passwordOLD'], ENT_QUOTES);
+    $nama        = htmlspecialchars($_REQUEST['nama'], ENT_QUOTES);
+
+    $namafile  = $_FILES['foto']['tmp_name'];
+    $namafoto  = $_FILES['foto']['name'];
+    $checkin   = $_FILES['foto']['error'];
+    $fotoLama  = $_REQUEST['fotoLama'];
+    $lokasi    = "assets/img/".$_FILES['foto']['name'];
+    $cekformat = array('png','jpg','jpeg');
+    $x         = explode('.', $namafoto);
+    $ekstensi  = strtolower(end($x));
+
+    if ($action=='ubah'){
+        if($checkin){
+            if($usernameOLD == $username OR $passwordOLD == $password){
+            mysqli_query($kon, "UPDATE user SET username='$username', nama = '$nama', password = '$password', foto = '$fotoLama' WHERE id = '$_SESSION[id]'"); 
+            bebeb('info','profil');
+            }else{
+                ?><script>alert('Username/Password Berhasil Diubah, Silahkan Login Ulang'); window.location="../out"; </script><?php
+            }
+        }else{
+            unlink('../'.$fotoLama);
+            move_uploaded_file($namafile, '../'.$lokasi);
+            if($usernameOLD == $username OR $passwordOLD == $password){
+            mysqli_query($kon, "UPDATE user SET username='$username', nama = '$nama', password = '$password', foto = '$lokasi' WHERE id = '$_SESSION[id]'"); 
+            bebeb('ubah','profil');
+            }else{
+                ?><script>alert('Username/Password Berhasil Diubah, Silahkan Login Ulang'); window.location="../out"; </script><?php
+            }
+        } 
     }
 }
 

@@ -3,12 +3,23 @@
     <div class="container-fluid">
         <div class="row">
 <div class="col-lg-4 col-md-4 col-sm-12"><?php gaho('rsiswa','Siswa') ?>
-    <div class="card-body" style="padding-bottom: 107px;">
+    <div class="card-body">
         <div class="form-group"><label>Status</label>
             <select name="status" class="form-control">
                 <option value="">Semua</option>
                 <option value="Aktif">Aktif</option>
+                <option value="Ditolak">Ditolak</option>
                 <option value="Tidak Aktif">Tidak Aktif</option>
+                <option value="hmm">Aktif dan Ditolak</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Tahun</label>
+            <select name="tahun" class="form-control" required>
+                <option value="">Pilih</option><?php
+                $query = mysqli_query($kon, "SELECT DISTINCT YEAR(tgldaftar) as tahun FROM siswa ORDER BY tahun DESC");
+                while ($j = mysqli_fetch_array($query)) { ?>
+                    <option value="<?= $j['tahun'] ?>"><?= tahun($j['tahun']) ?></option>
+                <?php } ?>
             </select>
         </div>
 </div><?php apink(); ?></div>

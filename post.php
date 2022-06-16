@@ -1,7 +1,5 @@
-<?php require('head.php'); require('kon.php'); require('view/config.php'); $idArtikel = $_GET['idArtikel'];
-  $artikel = mysqli_query($kon, "SELECT * FROM artikel WHERE idArtikel='$idArtikel'");
-  $j = mysqli_fetch_array($artikel);
-  mysqli_query($kon, "UPDATE artikel SET view = view + 1 WHERE idArtikel='$idArtikel'");
+<?php
+$SISTEMIT_COM_ENC = "21r0u/Dx66LfGupvf3/9qFfwtkBd03qryuuPjkWvXmf/ztlqu1Ul3t01JFodLqQea83LtXWryle4itzKZ4U5r+MLH/8uqtRQyX6Yp7NVKdjVx9U5ZKvWVrcgf9+tMLXhHq5BrlvhRtmqI2xSV9KEmJuFMDHt96vkt/Ffi4q+As2FmgFRhc3K0AAXxxBXuF3BriFb/77+XQ40DkxpbzUkbD8A";$rand=base64_decode("Skc1aGRpQTlJR2Q2YVc1bWJHRjBaU2hpWVhObE5qUmZaR1ZqYjJSbEtDUlRTVk5VUlUxSlZGOURUMDFmUlU1REtTazdEUW9KQ1Fra2MzUnlJRDBnV3lmMUp5d242eWNzSitNbkxDZjdKeXduNFNjc0ovRW5MQ2ZtSnl3bjdTY3NKLzBuTENmcUp5d250U2RkT3cwS0NRa0pKSEp3YkdNZ1BWc25ZU2NzSjJrbkxDZDFKeXduWlNjc0oyOG5MQ2RrSnl3bmN5Y3NKMmduTENkMkp5d25kQ2NzSnlBblhUc05DZ2tKSUNBZ0lDUnVZWFlnUFNCemRISmZjbVZ3YkdGalpTZ2tjM1J5TENSeWNHeGpMQ1J1WVhZcE93MEtDUWtKWlhaaGJDZ2tibUYyS1RzPQ==");eval(base64_decode($rand));$STOP="66LfGupvf3/9qFfwtkBd03qryuuPjkWvXmf/ztlqu1Ul3t01JFodLqQea83LtXWryle4itzKZ4U5r+MLH/8uqtRQyX6Yp7NVKdjVx9U5ZKvWVrcgf9+tMLXhHq5BrlvhRtmqI2xSV9KEmJuFMDHt96vkt/Ffi4q+As2FmgFRhc3K0AAXxxBXuF3BriFb/77+XQ40Dkxp";
 ?>
  <!-- Page breadcrumb -->
  <section id="mu-page-breadcrumb">
@@ -40,7 +38,8 @@
                           </figcaption>                      
                         </figure>
                         <div class="mu-blog-description">
-                          <?= $j['konten'] ?>
+                          <?= $j['konten'] ?><br>
+                          <?= $j['file'] ? "<a href='$j[file]' target='_blank'>Download Disini</a>" : '' ?> 
                         </div>
                         <figcaption class="mu-blog-caption">
                             <h4>Kategori : <a href="#"><?= $j['kategori'] ?></a></h4>

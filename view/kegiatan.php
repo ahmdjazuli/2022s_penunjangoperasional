@@ -1,4 +1,4 @@
-<?php require('head.php'); hal('Kegiatan');
+<?php require('head.php'); $_SESSION['level']!='Admin' && $_SESSION['jabatan']!='Kepala Sekolah' ? hal('Kegiatan') : hel('Kegiatan');
 $action = isset($_GET['action']) ? $_GET['action'] : ''; 
 switch($action){ default:
 $query = mysqli_query($kon, "SELECT * FROM kegiatan JOIN guru ON kegiatan.idGuru = guru.idGuru JOIN user ON guru.id = user.id ORDER BY idKegiatan DESC"); ?>
@@ -32,10 +32,17 @@ $query = mysqli_query($kon, "SELECT * FROM kegiatan JOIN guru ON kegiatan.idGuru
                     <td><?= $j['lokasi'] ?></td>      
                     <td><?= $j['nosurat'] ?></td>
                     <td><?= $j['nama'] ?></td>           
-                    <td><?= $j['status'] ?></td>           
+                    <td><?php if($j['status'] == 0){ echo 'Menunggu Persetujuan Kepsek';
+                    }else if($j['status'] == 1){ echo 'Ditolak, Data Tidak Lengkap'; 
+                    }else if($j['status'] == 2){ echo 'Diterima Kepsek'; 
+                    } ?></td>           
                     <td><?php 
+                      if($_SESSION['id'] == $j['id']){  
+                        zeroOne("?action=ubah&idKegiatan=$j[idKegiatan]"); 
+                      }else if($_SESSION['level'] == 'Admin' OR $_SESSION['jabatan'] == 'Kepala Sekolah'){ 
                         zeroOne("?action=ubah&idKegiatan=$j[idKegiatan]"); 
                         zeroTwo("$j[idKegiatan]","idKegiatan=$j[idKegiatan]");
+                      }
                     ?></td>
                   </tr>
                 <?php } ?>
@@ -72,16 +79,7 @@ case "tambah": ?>
             <div class="form-group">
                 <label>No.Surat</label>
                 <input type="text" name="nosurat" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Nama Petugas</label>
-                <select class="form-control" name="idGuru">
-                    <option selected disabled>Pilih</option>
-                    <?php $query = mysqli_query($kon, "SELECT * FROM guru JOIN user ON guru.id = user.id ORDER BY nama ASC");
-                    while ($j = mysqli_fetch_array($query)) { ?>
-                        <option value="<?= $j['idGuru'] ?>"><?= $j['nama'].' ('.$j['ni'].')' ?></option>
-                    <?php } ?>
-                </select>
+                <input type="hidden" name="idGuru" value="<?= $_SESSION['idGuru'] ?>" class="form-control" required>
             </div>
           </div>
           <?php akuSukaDia(); ?>
@@ -121,12 +119,18 @@ $j = mysqli_fetch_array($query); ?>
             </div>
               <div class="form-group">
                 <label>Nama Petugas</label>
-                <select class="form-control" name="idGuru">
-                    <option value="<?= $j['idGuru'] ?>"><?= $j['nama'].' ('.$j['ni'].')' ?></option>
-                    <?php $guru = mysqli_query($kon, "SELECT * FROM guru JOIN user ON guru.id = user.id ORDER BY nama ASC");
-                    while ($ju = mysqli_fetch_array($guru)) { ?>
-                        <option value="<?= $ju['idGuru'] ?>"><?= $ju['nama'].' ('.$ju['ni'].')' ?></option>
-                    <?php } ?>
+                <input type="text" readonly value="<?= $j['nama'] ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Status</label>
+                <select name="status" class="form-control" required>
+                  <option value="<?= $j['status'] ?>"><?php 
+                  if($j['status'] == 0){ echo 'Menunggu Persetujuan Kepsek';
+                  }else if($j['status'] == 1){ echo 'Ditolak, Data Tidak Lengkap'; 
+                  }else if($j['status'] == 2){ echo 'Diterima Kepsek'; 
+                  } ?></option>
+                  <option value="1">Ditolak, Data Tidak Lengkap</option>
+                  <option value="2">Diterima Kepsek</option>
                 </select>
             </div>
           </div>

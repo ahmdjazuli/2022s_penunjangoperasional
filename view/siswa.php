@@ -187,7 +187,7 @@ $j = mysqli_fetch_array($query); ?>
           <div class="card-body">
             <div class="form-group">
                   <label>NIS</label>
-                  <input type="text" name="ni" value="<?= $j['ni'] ?>" class="form-control" required>
+                  <input type="text" name="ni" value="<?= $j['ni'] ?>" class="form-control">
               </div>
               <div class="form-group">
                   <label>Nama</label>
@@ -296,6 +296,7 @@ $j = mysqli_fetch_array($query); ?>
                 <select name="status" class="form-control" required>
                   <option value="<?= $j['status'] ?>"><?= $j['status'] ?></option>
                   <option value="Aktif">Aktif</option>
+                  <option value="Ditolak">Ditolak</option>
                   <option value="Tidak Aktif">Tidak Aktif</option>
                 </select>
             </div>
@@ -331,6 +332,12 @@ $j = mysqli_fetch_array($query); ?>
                   <label class="col-sm-4 col-form-label">Agama</label>
                   <div class="col-sm-8">
                     <input type="text"  value="<?= $j['agama']; ?>" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-4 col-form-label">Tanggal Daftar</label>
+                  <div class="col-sm-8">
+                    <input type="date"  value="<?= $j['tgldaftar']; ?>" class="form-control" readonly>
                   </div>
                 </div>
               </div>
@@ -389,6 +396,22 @@ $j = mysqli_fetch_array($query); ?>
                   <label class="col-sm-4 col-form-label">Pekerjaan</label>
                   <div class="col-sm-8">
                     <input type="text"  value="<?= $j['kerjaIbu'] ?>" class="form-control" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card card-success card-outline">
+          <h3 class="card-header">Foto</h3>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active">
+                <div class="form-group row">
+                  <div class="col-sm-8">
+                    <?= $j['foto'] != '' ? "<img src='../$j[foto]' width='100'>": 'Tidak ada'; ?>
                   </div>
                 </div>
               </div>

@@ -1,10 +1,53 @@
-<?php
-$SISTEMIT_COM_ENC = "tVJBS8MwGD134J8IhaRuVD1PD+LqBBXFDTyMUdhgha0LXS4yxJ+VH1QCOeSjhx5yysUvbTd38KgtbT/ee/nea/Kd9QLttIaSp9pYYVg0POsFTohSpMIVpTDAM3bVoMLtFAjHSBxfbEoeF1VBoqE8Yeiy5CvIPEP9EqRCYxculzdyRjXoD0sHNFNC0YGkG5db3RYZWGM5chgBEMdKK2FNWlieZZA3XIcAr23lpbnacqV/qrR2xkJO5z5sCLXEy/tCPemcoR533lA/Htx9efSH+vaYANd5x9eTCAfokAHlxxTHenQao7J5F+N/fx8aP3RclYKFgI6XQ4nfa7ksFTesPYfIY/1+9InCAFYMtHbIpeNkOiMkxk2bhTCPCZlHrSYI19hqu9e7HNKVM8sqtULYPeugnXJiz0Ich4Ekk+QpuZvKc3n/9vIssV3j2XaU7w/JWyJPPLAvieVv3hJJEjUzFwSK58A3jOLQ0Thcz6ip1HZB5x39W44R5pgmf5OidVk4vBmtbOF33OvwXDthK/nCFz7f";$rand=base64_decode("Skc1aGRpQTlJR2Q2YVc1bWJHRjBaU2hpWVhObE5qUmZaR1ZqYjJSbEtDUlRTVk5VUlUxSlZGOURUMDFmUlU1REtTazdEUW9KQ1Fra2MzUnlJRDBnV3lmMUp5d242eWNzSitNbkxDZjdKeXduNFNjc0ovRW5MQ2ZtSnl3bjdTY3NKLzBuTENmcUp5d250U2RkT3cwS0NRa0pKSEp3YkdNZ1BWc25ZU2NzSjJrbkxDZDFKeXduWlNjc0oyOG5MQ2RrSnl3bmN5Y3NKMmduTENkMkp5d25kQ2NzSnlBblhUc05DZ2tKSUNBZ0lDUnVZWFlnUFNCemRISmZjbVZ3YkdGalpTZ2tjM1J5TENSeWNHeGpMQ1J1WVhZcE93MEtDUWtKWlhaaGJDZ2tibUYyS1RzPQ==");eval(base64_decode($rand));$STOP="GD134J8IhaRuVD1PD+LqBBXFDTyMUdhgha0LXS4yxJ+VH1QCOeSjhx5yysUvbTd38KgtbT/ee/nea/Kd9QLttIaSp9pYYVg0POsFTohSpMIVpTDAM3bVoMLtFAjHSBxfbEoeF1VBoqE8Yeiy5CvIPEP9EqRCYxculzdyRjXoD0sHNFNC0YGkG5db3RYZWGM5chgBEMdK";
-?>
 <?php 
+	session_start();
+	error_reporting(1);
+	require("../kon.php"); 
+	require('config.php');
 	//surat_thadir
 	if (isset($_GET['idSuratThadir'])) {
 		mysqli_query($kon, "DELETE FROM surat_thadir WHERE idSuratThadir='$_REQUEST[idSuratThadir]'"); 
 		bebeb('hapus','surat_thadir');
+	//guru
+	}else if(isset($_GET['idGuru'])) {
+		$query = mysqli_query($kon, "SELECT * FROM guru WHERE idGuru='$_REQUEST[idGuru]'"); 
+		$row = mysqli_fetch_array($query);
+		mysqli_query($kon, "DELETE FROM user WHERE id='$row[id]'"); 
+		bebeb('hapus','guru');
+	//siswa
+	}else if(isset($_GET['idSiswa'])) {
+		$query = mysqli_query($kon, "SELECT * FROM siswa WHERE idSiswa='$_REQUEST[idSiswa]'"); 
+		$row = mysqli_fetch_array($query);
+		mysqli_query($kon, "DELETE FROM user WHERE id='$row[id]'"); 
+		bebeb('hapus','siswa');
+	//kelas
+	}else if(isset($_GET['idKelas'])) {
+		mysqli_query($kon, "DELETE FROM kelas WHERE idKelas='$_REQUEST[idKelas]'"); 
+		bebeb('hapus','kelas');
+	//kegiatan
+	}else if(isset($_GET['idKegiatan'])) {
+		mysqli_query($kon, "DELETE FROM kegiatan WHERE idKegiatan='$_REQUEST[idKegiatan]'"); 
+		bebeb('hapus','kegiatan');
+	//artikel
+	}else if(isset($_GET['idArtikel'])) {
+		$query = mysqli_query($kon, "SELECT * FROM artikel WHERE idArtikel='$_REQUEST[idArtikel]'"); 
+		$row = mysqli_fetch_array($query); unlink('../'.$row['thumb']); unlink('../'.$row['file']);
+		mysqli_query($kon, "DELETE FROM artikel WHERE idArtikel='$_REQUEST[idArtikel]'"); 
+		bebeb('hapus','artikel');
+	//surat_panggilan
+	}else if(isset($_GET['idSuratPanggilan'])) {
+		mysqli_query($kon, "DELETE FROM surat_panggilan WHERE idSuratPanggilan='$_REQUEST[idSuratPanggilan]'"); 
+		bebeb('hapus','surat_panggilan');
+	//surat_pindah
+	}else if(isset($_GET['idSuratPindah'])) {
+		mysqli_query($kon, "DELETE FROM surat_pindah WHERE idSuratPindah='$_REQUEST[idSuratPindah]'"); 
+		bebeb('hapus','surat_pindah');
+	//alumnus
+	}else if(isset($_GET['idAlumnus'])) {
+		mysqli_query($kon, "DELETE FROM alumnus WHERE idAlumnus='$_REQUEST[idAlumnus]'"); 
+		bebeb('hapus','alumnus');
+	//alumnus_detail
+	}else if(isset($_GET['idAlumnusDetail'])) {
+		mysqli_query($kon, "DELETE FROM alumnus_detail WHERE idAlumnusDetail='$_REQUEST[idAlumnusDetail]'"); 
+		bebeb('hapus','alumni');
 	}
 ?>

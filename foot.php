@@ -84,16 +84,5 @@
 
   <!-- Custom js -->
   <script src="assets/js/custom.js"></script> 
-<!-- <script>
-   $(function(){
-      var path = window.location.href;
-      $('nav a').each(function(){ 
-         if(this.href === path){
-            $(this).addClass('active');
-            $(this).parents().addClass('menu-open');
-         }
-      });
-   });
-</script> -->
 </body>
 </html>

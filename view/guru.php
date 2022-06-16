@@ -1,4 +1,4 @@
-<?php require('head.php'); hal('Data Guru');
+<?php require('head.php'); $_SESSION['level']=='Admin' ? hal('Data Guru') : hel('Data Guru') ;
 $action = isset($_GET['action']) ? $_GET['action'] : ''; 
 switch($action){ default:
 $query = mysqli_query($kon, "SELECT * FROM guru JOIN user ON guru.id = user.id ORDER BY idGuru DESC"); ?>
@@ -34,9 +34,14 @@ $query = mysqli_query($kon, "SELECT * FROM guru JOIN user ON guru.id = user.id O
                     <td><?= $j['golongan'] ?></td>    
                     <td><?= $j['tipe'] ?></td>      
                     <td><?php 
-                        jump("?action=detail&idGuru=$j[idGuru]"); 
-                        zeroOne("?action=ubah&idGuru=$j[idGuru]&id=$j[id]"); 
+                      if($_SESSION['id'] == $j['id']){  
+                        jump("?action=detail&idGuru=$j[idGuru]");
+                        zeroOne("?action=ubah&idGuru=$j[idGuru]&id=$j[id]");
+                      }else if($_SESSION['level'] == 'Admin'){ 
+                        jump("?action=detail&idGuru=$j[idGuru]");
+                        zeroOne("?action=ubah&idGuru=$j[idGuru]&id=$j[id]");
                         zeroTwo("$j[idGuru]","idGuru=$j[idGuru]");
+                      }
                     ?></td>
                   </tr>
                 <?php } ?>
@@ -250,7 +255,7 @@ $j = mysqli_fetch_array($query); ?>
 <?php break;
 case "detail":
 $idGuru = $_GET['idGuru'];
-$query = mysqli_query($kon, "SELECT * FROM guru JOIN user ON guru.id = user.id  WHERE idGuru = '$idGuru'");
+$query = mysqli_query($kon, "SELECT * FROM guru JOIN user ON guru.id = user.id WHERE idGuru = '$idGuru'");
 $j = mysqli_fetch_array($query); ?>
 <section class="content">
  <div class="container-fluid">
@@ -300,6 +305,22 @@ $j = mysqli_fetch_array($query); ?>
                   <label class="col-sm-4 col-form-label">No. Telepon</label>
                   <div class="col-sm-8">
                     <input type="text" value="<?= $j['telp'] ?>" class="form-control" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="card card-success card-outline">
+          <h3 class="card-header">Foto</h3>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane active">
+                <div class="form-group row">
+                  <div class="col-sm-8">
+                    <?= $j['foto'] != '' ? "<img src='../$j[foto]' width='100'>": 'Tidak ada'; ?>
                   </div>
                 </div>
               </div>

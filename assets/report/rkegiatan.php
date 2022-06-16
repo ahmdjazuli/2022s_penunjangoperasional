@@ -26,7 +26,10 @@ if ($bulan AND $tahun) {
       <td><?= $j['lokasi'] ?></td>      
       <td><?= $j['nosurat'] ?></td>
       <td><?= $j['nama'] ?></td>           
-      <td><?= $j['status'] ?></td> 
+      <td><?php if($j['status'] == 0){ echo 'Menunggu Persetujuan Kepsek';
+      }else if($j['status'] == 1){ echo 'Ditolak, Data Tidak Lengkap'; 
+      }else if($j['status'] == 2){ echo 'Diterima Kepsek'; 
+      } ?></td>    
     </tr>
     <?php endwhile; ?>
 </table></div>

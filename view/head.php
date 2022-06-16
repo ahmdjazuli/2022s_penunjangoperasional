@@ -2,12 +2,6 @@
   require('../kon.php'); 
   require('config.php'); 
   session_start();
-  $username   = $_SESSION['username'];
-  $password   = $_SESSION['password'];
-  $endorse    = mysqli_query($kon, "SELECT * FROM user WHERE username = '$username' AND password = '$password'");
-  $ayang      = mysqli_fetch_array($endorse);
-  $_SESSION['id'] = $ayang['id'];
-  $id = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,10 +70,19 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="assets/img/user2-160x160.jpg" class="img-circle elevation-2">
+          <?php 
+            $binu = mysqli_query($kon, "SELECT * FROM user WHERE id = '$_SESSION[id]'");
+            $bibi = mysqli_fetch_array($binu);
+            if($_SESSION['level'] == 'Admin'){
+              $lokasifoto = '../assets/img/admin.jpg';
+            }else if($_SESSION['level'] == 'Guru'){
+              $lokasifoto = '../'.$bibi['foto'];
+            }
+          ?>
+          <img src="<?= $lokasifoto ?>" class="img-circle elevation-2">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?= $ayang['nama'] ?></a>
+          <a href="profil?id=<?= $_SESSION['id'] ?>" class="d-block"><?= $_SESSION['nama'] ?></a>
         </div>
       </div>
       <!-- Sidebar Menu -->
@@ -87,9 +90,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item"><a href="kelas" class="nav-link">
               <i class="nav-icon fas fa-hotel"></i><p>Kelas</p> 
-          </a></li>
-          <li class="nav-item"><a href="kegiatan" class="nav-link">
-              <i class="nav-icon fas fa-person-booth"></i><p>Kegiatan</p> 
           </a></li>
           <li class="nav-item"><a href="artikel" class="nav-link">
               <i class="nav-icon fas fa-map"></i><p>Artikel</p> 
@@ -101,6 +101,9 @@
                 <i class="right fas fa-angle-left"></i>
               </p></a>
             <ul class="nav nav-treeview">
+              <li class="nav-item"><a href="kegiatan" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i><p>Kegiatan</p> 
+              </a></li>
               <li class="nav-item"><a href="surat_panggilan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i><p>Pemanggilan Orang Tua</p>
               </a></li>

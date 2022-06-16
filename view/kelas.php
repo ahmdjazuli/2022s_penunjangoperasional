@@ -1,4 +1,4 @@
-<?php require('head.php'); hal('Kelas');
+<?php require('head.php'); $_SESSION['level']=='Admin' ? hal('Kelas') : hel('Kelas');
 $action = isset($_GET['action']) ? $_GET['action'] : ''; 
 switch($action){ default:
 $query = mysqli_query($kon, "SELECT * FROM kelas JOIN guru ON kelas.idGuru = guru.idGuru JOIN user ON guru.id = user.id ORDER BY idKelas DESC"); ?>
@@ -30,8 +30,10 @@ $query = mysqli_query($kon, "SELECT * FROM kelas JOIN guru ON kelas.idGuru = gur
                     <td><?= $j['tahun'] ?></td>      
                     <td><?= $j['nama'].' - '.$j['ni'] ?></td>           
                     <td><?php 
-                        zeroOne("?action=ubah&idKelas=$j[idKelas]"); 
+                      if($_SESSION['level'] == 'Admin'){  
+                        zeroOne("?action=ubah&idKelas=$j[idKelas]");
                         zeroTwo("$j[idKelas]","idKelas=$j[idKelas]");
+                      }
                     ?></td>
                   </tr>
                 <?php } ?>
