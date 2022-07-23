@@ -3,6 +3,11 @@ Judul Aplikasi :  SISTEM INFORMASI PENUNJANG OPERASIONAL SMK DARUSSALAM MARTAPUR
 
 Joki untuk kebutuhan Skripsi Mahasiswa Uniska Banjarbaru.
 
+PEMBAHARUAN 2 :
+1. Grafik Surat Pemanggilan Ortu dan Pindah Sekolah.
+2. Report Satuan untuk Surat Kegiatan dan Surat Izin Tidak Hadir (Bisa dicetak oleh Guru).
+3. Report Satuan untuk Surat Panggilan dan Surat Pindah (Bisa dicetak oleh Guru/Admin).
+
 PEMBAHARUAN : 
 1. Tabel Artikel (kolom file).
 2. Tabel Siswa (kolom tgldaftar).
@@ -28,7 +33,7 @@ Fitur Website :
 3. Multi User (Admin, Guru dan Siswa)
 4. Halaman Utama (5) : Beranda, Profil, Jurusan, Fasilitas, Daftar Artikel dan Kontak.
 5. Data Master terdiri dari (3) : Data Siswa, Guru, Alumnus.
-6. Data Report terdiri dari (8) : Laporan Siswa, Kelas, Kegiatan, Artikel, Surat Pemanggilan Orang Tua, Surat Pindah Sekolah, Surat Izin Tidak Hadir (Guru) dan Detail Alumnus.
+6. Data Report terdiri dari (9) : Laporan Siswa, Kelas, Kegiatan, Artikel, Surat Pemanggilan Orang Tua, Surat Pindah Sekolah, Surat Izin Tidak Hadir (Guru), Detail Alumnus dan Grafik Surat Pemanggilan Ortu dan Pindah Sekolah (NEW).
 7. Alert SweetAlert
 8. CRUD Standar
 9. URL BERSIH

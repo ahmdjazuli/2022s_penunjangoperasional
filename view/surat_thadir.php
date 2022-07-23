@@ -36,6 +36,7 @@ $query = mysqli_query($kon, "SELECT * FROM surat_thadir JOIN guru ON surat_thadi
                     } ?></td>            
                     <td><?php 
                       if($_SESSION['id'] == $j['id']){  
+                        kick("surat_thadir","idSuratThadir=$j[idSuratThadir]");
                         zeroOne("?action=ubah&idSuratThadir=$j[idSuratThadir]"); 
                       }else if($_SESSION['level'] == 'Admin' OR $_SESSION['jabatan'] == 'Kepala Sekolah'){ 
                         zeroOne("?action=ubah&idSuratThadir=$j[idSuratThadir]");
@@ -117,6 +118,20 @@ $j = mysqli_fetch_array($query); ?>
                 <label>Keterangan</label>
                 <input type="text" name="ket" value="<?= $j['ket'] ?>" class="form-control" required>
             </div>
+            <?php if($_SESSION['level']!='Admin' && $_SESSION['jabatan']=='Kepala Sekolah'){ ?>
+            <div class="form-group">
+                <label>Status</label>
+                <select name="status" class="form-control" required>
+                  <option value="<?= $j['status'] ?>"><?php 
+                  if($j['status'] == 0){ echo 'Menunggu Persetujuan Kepsek';
+                  }else if($j['status'] == 1){ echo 'Ditolak, Data Tidak Lengkap'; 
+                  }else if($j['status'] == 2){ echo 'Diterima Kepsek'; 
+                  } ?></option>
+                  <option value="1">Ditolak, Data Tidak Lengkap</option>
+                  <option value="2">Diterima Kepsek</option>
+                </select>
+            </div>
+            <?php } ?>
           </div>
           <?php akuSukaDia(); ?>
         </div>

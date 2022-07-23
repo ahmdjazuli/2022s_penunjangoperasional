@@ -39,6 +39,7 @@ $query = mysqli_query($kon, "SELECT * FROM kegiatan JOIN guru ON kegiatan.idGuru
                     <td><?php 
                       if($_SESSION['id'] == $j['id']){  
                         zeroOne("?action=ubah&idKegiatan=$j[idKegiatan]"); 
+                        $j['status'] == 2 ? kick("surat_kegiatan","idKegiatan=$j[idKegiatan]") : '';
                       }else if($_SESSION['level'] == 'Admin' OR $_SESSION['jabatan'] == 'Kepala Sekolah'){ 
                         zeroOne("?action=ubah&idKegiatan=$j[idKegiatan]"); 
                         zeroTwo("$j[idKegiatan]","idKegiatan=$j[idKegiatan]");

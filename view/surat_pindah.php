@@ -34,6 +34,7 @@ $query = mysqli_query($kon, "SELECT * FROM surat_pindah JOIN siswa ON surat_pind
                     <td><?= $j['sekolahTujuan'] ?></td>           
                     <td><?= $j['ket'] ?></td>           
                     <td><?php 
+                        kick("surat_pindah","idSuratPindah=$j[idSuratPindah]");
                         zeroOne("?action=ubah&idSuratPindah=$j[idSuratPindah]"); 
                         zeroTwo("$j[idSuratPindah]","idSuratPindah=$j[idSuratPindah]");
                     ?></td>

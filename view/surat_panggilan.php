@@ -34,6 +34,7 @@ $query = mysqli_query($kon, "SELECT * FROM surat_panggilan JOIN siswa ON surat_p
                     <td><?= $j['ket'] ?></td>           
                     <td><?= $j['nosurat'] ?></td>
                     <td><?php 
+                        kick("surat_panggilan","idSuratPanggilan=$j[idSuratPanggilan]");
                         zeroOne("?action=ubah&idSuratPanggilan=$j[idSuratPanggilan]"); 
                         zeroTwo("$j[idSuratPanggilan]","idSuratPanggilan=$j[idSuratPanggilan]");
                     ?></td>
@@ -65,7 +66,7 @@ case "tambah": ?>
                 <label>Nama Siswa</label>
                 <input type="text" name="idSiswa" list="option" class="form-control" required>
                 <datalist id="option">
-                  <?php $query = mysqli_query($kon, "SELECT * FROM siswa JOIN user ON siswa.id = user.id ORDER BY nama ASC");
+                  <?php $query = mysqli_query($kon, "SELECT * FROM siswa JOIN user ON siswa.id = user.id WHERE status = 'Aktif' ORDER BY nama ASC");
                     while ($j = mysqli_fetch_array($query)) { ?>
                         <option value="<?= $j['idSiswa'] ?>"><?= $j['nama'].' ('.$j['ni'].')' ?></option>
                     <?php } ?>
